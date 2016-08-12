@@ -1,0 +1,15 @@
+rootProject.name = 'aliyun_oss_sample'
+
+include ':app'
+include ':react-native-permissions'
+project(':react-native-permissions').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-permissions/android')
+include ':react-native-image-picker'
+project(':react-native-image-picker').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-image-picker/android')
+include ':react-native-image-crop-picker'
+project(':react-native-image-crop-picker').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-image-crop-picker/android')
+include ':react-native-image-crop-picker'
+project(':react-native-image-crop-picker').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-image-crop-picker/android')
+include ':react-native-aliyun-oss'
+project(':react-native-aliyun-oss').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-aliyun-oss/android')
+include ':react-native-aliyun-oss'
+project(':react-native-aliyun-oss').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-aliyun-oss/android')

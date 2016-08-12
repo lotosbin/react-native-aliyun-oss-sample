@@ -1,26 +1,18 @@
 {
-  "name": "react-native-aliyun-oss-sample",
-  "version": "1.0.0",
-  "description": "react native aliyun oss sample",
-  "main": "index.js",
+  "name": "aliyun_oss_sample",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "react-native link",
+    "android": "terminal -e react-native run-android && terminal -e react-native log-android",
+    "ios": "open -a terminal \"node react-native run-ios\" && open -a terminal \"node react-native log-ios\"",
+    "start": "node node_modules/react-native/local-cli/cli.js start"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lotosbin/react-native-aliyun-oss-sample.git"
-  },
-  "keywords": [
-    "react",
-    "native",
-    "aliyun",
-    "oss",
-    "sample"
-  ],
-  "author": "lotosbin",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lotosbin/react-native-aliyun-oss-sample/issues"
-  },
-  "homepage": "https://github.com/lotosbin/react-native-aliyun-oss-sample#readme"
+  "dependencies": {
+    "react": "15.2.1",
+    "react-native": "0.31.0",
+    "react-native-aliyun-oss": "file:///Users/liubinbin/Documents/github/lotosbin/react-native-aliyun-oss",
+    "react-native-image-picker": "^0.21.5",
+    "react-native-permissions": "^0.2.4"
+  }
 }
