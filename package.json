@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "postinstall": "react-native link && react-native link react-native-aliyun-oss",
+    "postinstall": "node node_modules/react-native/local-cli/cli.js link && node node_modules/react-native/local-cli/cli.js link react-native-aliyun-oss",
     "android": "terminal -e react-native run-android && terminal -e react-native log-android",
     "ios": "open -a terminal \"node react-native run-ios\" && open -a terminal \"node react-native log-ios\"",
     "start": "node node_modules/react-native/local-cli/cli.js start"
