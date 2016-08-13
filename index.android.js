@@ -24,7 +24,8 @@ class aliyun_oss_sample extends Component {
   constructor(props){
     super(props)
     this.state={
-      avatarSource:{uri:''}
+      avatarSource:{uri:''},
+      avatarSource2:{uri:''}
     }
   }
   componentWillMount(){
@@ -37,6 +38,7 @@ class aliyun_oss_sample extends Component {
   }
   onShowImagePicker() {
     var options = {
+      noData: true,
       title: 'Select Avatar', // 选择器的标题，可以设置为空来不显示标题
       cancelButtonTitle: 'Cancel',
       takePhotoButtonTitle: 'Take Photo...', // 调取摄像头的按钮，可以设置为空使用户不可选择拍照
@@ -67,7 +69,7 @@ class aliyun_oss_sample extends Component {
       }
       else {
         // You can display the image using either data:
-
+        var source = {};
         if (Platform.OS === 'android') {
           source = {uri: response.uri, isStatic: true};
         } else {
@@ -76,13 +78,20 @@ class aliyun_oss_sample extends Component {
             isStatic: true
           };
         }
-        console.log('begin upload')
-        OSS.upload("twohours","lsdjflsdkflj",response.path)
+        this.setState({
+          avatarSource:source
+        })
+      }
+    });
+  }
+  onUpload(){
+      console.log('begin upload')
+        OSS.upload("twohours","lsdjflsdkflj",this.state.avatarSource.uri)
           .then((d)=>{
             console.log('success upload:'+JSON.stringify(d))
             console.log("https://twohours."+Config.oss.endpoint+"/lsdjflsdkflj")
             this.setState({
-              avatarSource:{
+              avatarSource2:{
                 uri: "https://twohours."+Config.oss.endpoint+"/lsdjflsdkflj"
               }
             })
@@ -90,11 +99,6 @@ class aliyun_oss_sample extends Component {
           .catch((e)=>{
             console.error(e)
           })
-        // this.setState({
-        //   avatarSource: source
-        // });
-      }
-    });
   }
   render() {
     return (
@@ -105,6 +109,7 @@ class aliyun_oss_sample extends Component {
           </Text>
         </TouchableOpacity>
         <Image source={this.state.avatarSource} style={styles.uploadAvatar} />
+        <Image source={this.state.avatarSource2} style={styles.uploadAvatar} />
         <TouchableOpacity onPress={this.onUpload.bind(this)}>
           <Text>
             upload
@@ -127,7 +132,6 @@ class aliyun_oss_sample extends Component {
 
 const styles = StyleSheet.create({
   uploadAvatar:{
-    flex: 1,
     width: 100,
     height: 100
   },

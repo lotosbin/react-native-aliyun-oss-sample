@@ -1,13 +1,7 @@
 node_modules/
 
 # reactnative
-android/build/
-android/app/build/
 ios/build/
-
-# gradle
-.gradle/
-gradle/
 
 # idea
 .idea/
